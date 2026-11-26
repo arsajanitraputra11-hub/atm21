@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATM Simulator - Edukasi</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="atm-wrapper">
+
+    <!-- Header mesin ATM -->
+    <div class="atm-header">
+      <div class="bank-logo">🏦 SimBank</div>
+      <div class="sim-badge">⚠️ SIMULASI EDUKASI — DATA FIKTIF</div>
+    </div>
+
+    <!-- Layar utama — semua konten dirender dinamis oleh JS -->
+    <div class="atm-screen" id="app-screen"></div>
+
+    <!-- Footer -->
+    <div class="atm-footer">
+      <span>Program Simulasi ATM — Hanya untuk Keperluan Edukasi. Bukan sistem perbankan nyata.</span>
+      <span class="credit">Created &amp; Owned by IG: <strong>@arsa.0a</strong></span>
+    </div>
+
+  </div>
+
+  <!-- Load model & logik sebelum UI dan app -->
+  <script src="js/models/Account.js"></script>
+  <script src="js/models/Customer.js"></script>
+  <script src="js/models/Transaction.js"></script>
+  <script src="js/models/ATM.js"></script>
+  <script src="js/data/dummyData.js"></script>
+  <script src="js/ui/UIRenderer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

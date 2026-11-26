@@ -1,0 +1,642 @@
+/* =============================================
+   ATM Simulator - Main Stylesheet
+   Created & Owned by IG: @arsa.0a
+   ============================================= */
+
+/* --- Reset & Base --- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- ATM Chassis --- */
+.atm-wrapper {
+  background: #1a1a2e;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  border: 2px solid #16213e;
+}
+
+/* --- Header --- */
+.atm-header {
+  background: linear-gradient(135deg, #0d47a1, #1565c0);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.bank-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.sim-badge {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: #ffe082;
+  background: rgba(0,0,0,0.3);
+  padding: 4px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,224,130,0.4);
+  text-align: right;
+}
+
+/* --- Screen --- */
+.atm-screen {
+  background: #0a0f1e;
+  min-height: 420px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Footer --- */
+.atm-footer {
+  background: #111827;
+  padding: 12px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border-top: 1px solid #1e293b;
+}
+
+.atm-footer span {
+  font-size: 0.65rem;
+  color: #475569;
+  text-align: center;
+}
+
+.atm-footer .credit {
+  color: #94a3b8;
+  font-size: 0.7rem;
+}
+
+.atm-footer .credit strong {
+  color: #60a5fa;
+}
+
+/* =============================================
+   SCREEN: LOGIN
+   ============================================= */
+.screen-title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.screen-title h2 {
+  font-size: 1.3rem;
+  color: #e2e8f0;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.screen-title p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  background: #0f172a;
+  border: 1.5px solid #1e293b;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: #e2e8f0;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  letter-spacing: 2px;
+}
+
+.form-group input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+}
+
+.form-group input::placeholder { color: #334155; letter-spacing: 0; }
+
+/* --- Attempt indicator --- */
+.attempt-info {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #f59e0b;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* --- Blocked screen --- */
+.blocked-box {
+  text-align: center;
+  padding: 20px;
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.3);
+  border-radius: 12px;
+}
+
+.blocked-box .block-icon { font-size: 3rem; margin-bottom: 12px; }
+
+.blocked-box h3 {
+  color: #ef4444;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.blocked-box p {
+  color: #94a3b8;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* --- Hint/dummy credentials --- */
+.hint-box {
+  background: #0f172a;
+  border: 1px dashed #1e3a5f;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.hint-box p {
+  font-size: 0.72rem;
+  color: #475569;
+  margin-bottom: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hint-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hint-box li {
+  font-size: 0.75rem;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.hint-box li span { color: #38bdf8; }
+
+/* =============================================
+   BUTTONS
+   ============================================= */
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s, opacity 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.4);
+  width: 100%;
+}
+
+.btn-primary:hover { box-shadow: 0 6px 20px rgba(37,99,235,0.5); }
+
+.btn-secondary {
+  background: #1e293b;
+  color: #94a3b8;
+  border: 1.5px solid #334155;
+  width: 100%;
+}
+
+.btn-secondary:hover { background: #263548; color: #e2e8f0; }
+
+.btn-danger {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(220,38,38,0.3);
+  width: 100%;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(22,163,74,0.35);
+  width: 100%;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #d97706, #b45309);
+  color: #fff;
+  width: 100%;
+}
+
+.btn-sm { padding: 9px 14px; font-size: 0.82rem; }
+
+/* =============================================
+   SCREEN: MAIN MENU
+   ============================================= */
+.welcome-bar {
+  background: linear-gradient(135deg, #0f2d6e, #1e3a8a);
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.welcome-bar .user-info h3 {
+  font-size: 0.85rem;
+  color: #bfdbfe;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.welcome-bar .user-info strong {
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+}
+
+.welcome-bar .acc-number {
+  font-size: 0.7rem;
+  color: #60a5fa;
+  font-family: 'Courier New', monospace;
+  margin-top: 2px;
+}
+
+.welcome-bar .balance-mini {
+  text-align: right;
+}
+
+.welcome-bar .balance-mini span {
+  display: block;
+  font-size: 0.65rem;
+  color: #93c5fd;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.welcome-bar .balance-mini strong {
+  font-size: 1rem;
+  color: #34d399;
+  font-family: 'Courier New', monospace;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.menu-card {
+  background: #0f172a;
+  border: 1.5px solid #1e293b;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-card:hover {
+  border-color: #3b82f6;
+  background: #111827;
+  transform: translateY(-2px);
+}
+
+.menu-card .card-icon { font-size: 2rem; }
+
+.menu-card .card-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.menu-card.card-exit {
+  grid-column: span 2;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border-color: #374151;
+}
+
+.menu-card.card-exit:hover { border-color: #ef4444; }
+.menu-card.card-exit .card-label { color: #ef4444; }
+
+/* =============================================
+   SCREEN: TRANSACTION FORMS
+   ============================================= */
+.screen-back-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-back {
+  background: none;
+  border: 1.5px solid #1e293b;
+  border-radius: 8px;
+  color: #64748b;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn-back:hover { border-color: #3b82f6; color: #3b82f6; }
+
+.screen-back-bar h3 {
+  font-size: 1rem;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.balance-display {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.balance-display span {
+  font-size: 0.7rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.balance-display strong {
+  font-size: 1.3rem;
+  color: #34d399;
+  font-family: 'Courier New', monospace;
+}
+
+.quick-amounts {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quick-amounts p {
+  font-size: 0.72rem;
+  color: #475569;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-btns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.btn-quick {
+  background: #0f172a;
+  border: 1.5px solid #1e293b;
+  border-radius: 8px;
+  color: #60a5fa;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 9px 4px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-quick:hover { background: #172033; border-color: #3b82f6; }
+
+/* =============================================
+   SCREEN: CEK SALDO
+   ============================================= */
+.saldo-card {
+  background: linear-gradient(135deg, #064e3b, #065f46);
+  border: 1px solid #059669;
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.saldo-card .saldo-label {
+  font-size: 0.75rem;
+  color: #6ee7b7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.saldo-card .saldo-amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #34d399;
+  font-family: 'Courier New', monospace;
+  margin-bottom: 8px;
+}
+
+.saldo-card .saldo-acc {
+  font-size: 0.75rem;
+  color: #6ee7b7;
+  font-family: 'Courier New', monospace;
+}
+
+.last-tx-title {
+  font-size: 0.72rem;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.tx-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.tx-item {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.tx-item .tx-desc {
+  font-size: 0.78rem;
+  color: #94a3b8;
+}
+
+.tx-item .tx-desc strong {
+  display: block;
+  color: #e2e8f0;
+  font-size: 0.82rem;
+}
+
+.tx-item .tx-amount { font-size: 0.85rem; font-family: 'Courier New', monospace; font-weight: 700; }
+.tx-item .tx-amount.debit  { color: #f87171; }
+.tx-item .tx-amount.credit { color: #34d399; }
+
+.tx-empty {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #334155;
+  padding: 20px 0;
+}
+
+/* =============================================
+   SCREEN: HASIL TRANSAKSI
+   ============================================= */
+.result-card {
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.result-card.success {
+  background: rgba(22,163,74,0.1);
+  border: 1px solid rgba(22,163,74,0.4);
+}
+
+.result-card.error {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.35);
+}
+
+.result-icon { font-size: 3rem; margin-bottom: 10px; }
+
+.result-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.result-card.success h3 { color: #34d399; }
+.result-card.error h3   { color: #ef4444; }
+
+.result-card p {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.result-details {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+}
+
+.detail-row span:first-child { color: #64748b; }
+
+.detail-row span:last-child {
+  color: #e2e8f0;
+  font-weight: 600;
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+.detail-row .highlight-green { color: #34d399; }
+.detail-row .highlight-red   { color: #f87171; }
+
+.divider {
+  height: 1px;
+  background: #1e293b;
+}
+
+/* =============================================
+   ALERT / MESSAGE
+   ============================================= */
+.alert {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.alert-error   { background: rgba(239,68,68,0.1);  border: 1px solid rgba(239,68,68,0.3);  color: #fca5a5; }
+.alert-success { background: rgba(22,163,74,0.1);  border: 1px solid rgba(22,163,74,0.35); color: #6ee7b7; }
+.alert-info    { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+
+/* =============================================
+   UTILITY
+   ============================================= */
+.text-center { text-align: center; }
+
+.separator {
+  border: none;
+  border-top: 1px solid #1e293b;
+  margin: 4px 0;
+}
+
+/* Scrollbar styling for tx-list */
+.tx-list::-webkit-scrollbar { width: 4px; }
+.tx-list::-webkit-scrollbar-track { background: #0f172a; }
+.tx-list::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 520px) {
+  .atm-wrapper { border-radius: 0; border: none; }
+  body { padding: 0; align-items: flex-start; }
+  .menu-grid { grid-template-columns: 1fr 1fr; }
+}
